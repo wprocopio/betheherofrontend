@@ -15,7 +15,7 @@ export default function NewIncident() {
   
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [value, setValue] = useState('');
+  const [valor, setValue] = useState('');
 
   const ongId = localStorage.getItem('ongId');
 
@@ -25,7 +25,7 @@ export default function NewIncident() {
     const data = {
       title,
       description,
-      value,
+      valor,
     };
 
     try {
@@ -33,11 +33,10 @@ export default function NewIncident() {
         headers: {
           Authorization: ongId,
         }
-      })      
-      
+      })            
       history.push('/profile');
     } catch (err) {
-      alert('Erro ao cadastrar caso, tente novamente.');
+      //alert('Erro ao cadastrar caso, tente novamente.');
     }
   }
   return (
@@ -63,7 +62,7 @@ export default function NewIncident() {
           onChange={e => setDescription(e.target.value)} 
           placeholder="Descrição"/>
           <input
-          value={value}
+          value={valor}
           onChange={e => setValue(e.target.value)}     
           placeholder="Valor em reais"/>
           
